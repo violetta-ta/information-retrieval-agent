@@ -1,0 +1,32 @@
+{
+  "name": "local-agentic-rag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsx --test src/**/*.test.ts",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/server.js",
+    "ingest": "tsx src/ingest/pipeline.ts",
+    "ingest:status": "tsx src/scripts/ingestStatus.ts",
+    "audit:tail": "tsx src/tools/auditTail.ts",
+    "webindex:dev": "tsx src/webindex/server.ts",
+    "webindex:start": "node dist/webindex/server.js",
+    "smoke:e2e": "tsx src/scripts/smokeE2E.ts"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.1.31",
+    "@langchain/langgraph": "^1.2.1",
+    "chromadb": "^1.10.4",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.0.0",
+    "pdf-parse": "^2.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}

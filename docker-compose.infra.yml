@@ -1,0 +1,26 @@
+services:
+  chroma:
+    image: chromadb/chroma:0.5.23
+    container_name: local-chroma
+    restart: unless-stopped
+    # Avoid snap Docker + AppArmor blocking SIGTERM (cannot stop container)
+    security_opt:
+      - apparmor=unconfined
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./data/chroma:/chroma/chroma
+    environment:
+      - ANONYMIZED_TELEMETRY=FALSE
+
+  # Optional SearxNG container kept off by default.
+  # Since current plan uses local crawler/index first, this stays as profile-based.
+  searxng:
+    image: searxng/searxng:latest
+    container_name: local-searxng
+    restart: unless-stopped
+    profiles: ["optional-search"]
+    ports:
+      - "127.0.0.1:8089:8080"
+    environment:
+      - BASE_URL=http://127.0.0.1:8089/
