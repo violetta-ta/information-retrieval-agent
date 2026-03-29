@@ -209,3 +209,6 @@ Internal-document citations include enriched metadata when available:
 - `MAX_EVIDENCE_ITEMS`: hard cap on retrieved evidence rows passed to synthesis.
 - `MAX_EVIDENCE_SNIPPET_CHARS`: per-evidence snippet truncation limit.
 - `EVIDENCE_CHAR_BUDGET`: total character budget for rendered evidence block.
+
+
+This project was developed with the assistance of AI tooling (Cursor).
